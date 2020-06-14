@@ -3,7 +3,7 @@ import turtle
 
 #wn.setup(700,700)
 
-def setupMaze(screenWidth,screenHeight,mazeWidth,mazeHeight):
+def setupMaze(screenWidth,screenHeight,mazeWidth,mazeHeight, insertLevelStr):
     wn = turtle.Screen()
     wn.bgcolor("black")
     wn.title("A Maze Game")
@@ -13,9 +13,8 @@ def setupMaze(screenWidth,screenHeight,mazeWidth,mazeHeight):
     for x in range(0,int(mazeWidth)):
         insertLevel = ""
         for y in range(0,int(mazeHeight)):
-             insertLevel += "X"
+             insertLevel += insertLevelStr[(int(mazeWidth) * y) + x]
         level_1.append(insertLevel)
-
 
     class Pen(turtle.Turtle):
         def __init__(self):

@@ -18,8 +18,8 @@ def recordData():
     if mazeHeight == '':
         mazeHeight = 0
     window.destroy()
-    import maze
-    maze.setupMaze(screenWidth,screenHeight,mazeWidth,mazeHeight)
+    import mazeCreation
+    mazeCreation.mazeDraw(screenWidth,screenHeight,mazeWidth,mazeHeight)
 
 window.title("GUI")
 window.geometry("500x300")
