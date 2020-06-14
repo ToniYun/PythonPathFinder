@@ -13,7 +13,11 @@ def recordData():
         screenHeight = 0
     if screenWidth == '':
         screenWidth = 0
-    
+    if mazeWidth == '':
+        mazeWidth = 0
+    if mazeHeight == '':
+        mazeHeight = 0
+    window.destroy()
     import maze
     maze.setupMaze(screenWidth,screenHeight,mazeWidth,mazeHeight)
 

@@ -38,7 +38,7 @@ def setupMaze(screenWidth,screenHeight,mazeWidth,mazeHeight):
             for x in range(len(level[y])):
                 character = level[y][x]
                 screen_x = (int(screenWidth)/2) + ((-1*int(screenWidth) - (24 * int(mazeWidth)))/2) + (x * 24)
-                screen_y = (-1*int(screenHeight)/2) + ((int(screenHeight) - (24 * int(mazeHeight)))/2) + (y * 24)#288 - (y * 24)
+                screen_y = (-1*int(screenHeight)/2) + ((int(screenHeight) + (24 * int(mazeHeight)))/2) - (y * 24)#288 - (y * 24)
                 if character == "X":
                     pen.goto(screen_x, screen_y)
                     pen.stamp()
@@ -47,5 +47,4 @@ def setupMaze(screenWidth,screenHeight,mazeWidth,mazeHeight):
 
     setup_maze(levels[1])
 
-    while True:
-        pass
+    wn.mainloop()
