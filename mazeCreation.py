@@ -1,11 +1,8 @@
 import tkinter
 
-
-
-
 def mazeDraw(screenWidth,screenHeight,mazeWidth,mazeHeight):
-    insertLevel = ""
     def sendToMaze():
+        insertLevel = TextIn.get("1.0",'end-1c')
         import maze
         maze.setupMaze(screenWidth, screenHeight, mazeWidth, mazeHeight, insertLevel)
     newWindow = tkinter.Tk()
@@ -13,8 +10,9 @@ def mazeDraw(screenWidth,screenHeight,mazeWidth,mazeHeight):
     height = mazeHeight * 24
     width = mazeWidth * 24
     newWindow.geometry(str(height) + "x" + str(width))
-    for x in range(0, int(25)):#mazeWidth)):
-        for y in range(0, int(25)):#mazeHeight)):
+    insertLevel = ""
+    for x in range(0, int(mazeWidth)):#mazeWidth)):
+        for y in range(0, int(mazeHeight)):#mazeHeight)):
             insertLevel += "X"
         insertLevel += "\n"
     TextIn = tkinter.Text(newWindow)
