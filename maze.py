@@ -1,4 +1,5 @@
 import turtle
+import pens
 
 #wn.setup(700,700)
 
@@ -9,26 +10,18 @@ def setupMaze(screenWidth,screenHeight,mazeWidth,mazeHeight, insertLevelStr):
     wn.setup(int(screenWidth), int(screenHeight))
 
     level_1 = []
+    pos = 0
     for y in range(0,int(mazeWidth)):
         insertLevel = ""
-        #for x in range(0,int(mazeHeight) + 1):
-        x = 0
-        while insertLevelStr[((int(mazeWidth)) * y) + x] != '\n':
-            print(((int(mazeWidth)) * y) + x, end = " ")
-            insertLevel += insertLevelStr[((int(mazeWidth)) * y) + x]
-            x += 1
-            
+        for x in range(0,int(mazeHeight) + 1):
+            if insertLevelStr[pos] != "\n":
+                print(pos, end=" ")
+                insertLevel += insertLevelStr[pos]
+            pos += 1
         print('\n')
         level_1.append(insertLevel)
 
-    class Pen(turtle.Turtle):
-        def __init__(self):
-            turtle.Turtle.__init__(self)
-            self.shape("square")
-            self.color("white")
-            self.penup()
-            # self.pensize(25)
-            self.speed(0)
+
 
     levels = [""]
 
@@ -46,8 +39,18 @@ def setupMaze(screenWidth,screenHeight,mazeWidth,mazeHeight, insertLevelStr):
                 if character == "X":
                     pen.goto(screen_x, screen_y)
                     pen.stamp()
+                if character == "T":
+                    treasure.goto(screen_x, screen_y)
+                    treasure.stamp()
+                if character == "C":
+                    MainCharacter.goto(screen_x, screen_y)
+                    MainCharacter.stamp()
+        #call for the path finder
 
-    pen = Pen()
+    pen = pens.Pen()
+    movement = pens.Movement()
+    MainCharacter = pens.MainCharacter()
+    treasure = pens.Treasure()
 
     setup_maze(levels[1])
 
