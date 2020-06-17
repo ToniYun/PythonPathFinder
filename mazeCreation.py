@@ -19,13 +19,27 @@ def mazeDraw():
             insertLevel += "X"
         insertLevel += "\n"
     TextIn = tkinter.Text(newWindow)
+    BFS = tkinter.Button(
+        text="BFS",
+        width = 25,
+        height = 3,
+        command = sendToMaze
+    )
+    DFS = tkinter.Button(
+        text="DFS",
+        width = 25,
+        height = 3,
+        command = sendToMaze
+    )
     button = tkinter.Button(
-        text="Set Maze",
+        text="BFS",
         width = 25,
         height = 3,
         command = sendToMaze
     )
     TextIn.pack()
     TextIn.insert(tkinter.END,insertLevel)
+    BFS.pack()
+    DFS.pack()
     button.pack()
     newWindow.mainloop()

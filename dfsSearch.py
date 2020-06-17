@@ -3,10 +3,10 @@ import pens
 import values
 import time
 
-def bfs(characterposition, treasureposition):
+def dfs(characterposition, treasureposition):
     movement = pens.Movement()
-    bfsqueue = queue.Queue()
-    bfsqueue.put(characterposition)
+    dfsqueue = queue.LifoQueue()
+    dfsqueue.put(characterposition)
     #print(insertLevelStr[(26 * int(y)) + int(x)], end=" ")
     def move(x,y):
         screen_x = ((values.screenWidth) / 2) + ((-1 * (values.screenWidth) - (24 * (values.mazeWidth))) / 2) + (x * 24)
@@ -15,10 +15,10 @@ def bfs(characterposition, treasureposition):
         values.insertLevelStr[(26 * int(y)) + int(x)] = "M"
         movement.goto(screen_x, screen_y)
         movement.stamp()
-        bfsqueue.put((x, y))
+        dfsqueue.put((x, y))
         time.sleep(.2)
-    while bfsqueue.qsize() != 0:
-        x,y = bfsqueue.get()
+    while dfsqueue.qsize() != 0:
+        x,y = dfsqueue.get()
         if values.insertLevelStr[(26 * int(y+1)) + int(x)] == "T":
             break
         if values.insertLevelStr[(26 * int(y)) + int(x + 1)] == "T":
