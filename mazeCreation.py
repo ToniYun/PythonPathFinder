@@ -1,18 +1,21 @@
 import tkinter
+import values
 
-def mazeDraw(screenWidth,screenHeight,mazeWidth,mazeHeight):
+def mazeDraw():
     def sendToMaze():
-        insertLevel = TextIn.get("1.0",'end-1c')
+        values.insertLevelStr = list(TextIn.get("1.0",'end-1c'))
+        newWindow.destroy()
         import maze
-        maze.setupMaze(screenWidth, screenHeight, mazeWidth, mazeHeight, insertLevel)
+        maze.setupMaze()
+
     newWindow = tkinter.Tk()
     newWindow.title("GUI")
-    height = mazeHeight * 24
-    width = mazeWidth * 24
+    height = values.mazeHeight * 24
+    width = values.mazeWidth * 24
     newWindow.geometry(str(height) + "x" + str(width))
     insertLevel = ""
-    for x in range(0, int(mazeWidth)):#mazeWidth)):
-        for y in range(0, int(mazeHeight)):#mazeHeight)):
+    for x in range(0, values.mazeWidth):
+        for y in range(0, values.mazeWidth):
             insertLevel += "X"
         insertLevel += "\n"
     TextIn = tkinter.Text(newWindow)

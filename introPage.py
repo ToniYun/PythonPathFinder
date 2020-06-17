@@ -1,25 +1,18 @@
 import tkinter
+import values
 
 
 window = tkinter.Tk()
 
 
 def recordData():
-    screenWidth = entryWidth.get()
-    screenHeight = entryHeight.get()
-    mazeWidth = mentryWidth.get()
-    mazeHeight = mentryHeight.get()
-    if screenHeight == '':
-        screenHeight = 0
-    if screenWidth == '':
-        screenWidth = 0
-    if mazeWidth == '':
-        mazeWidth = 0
-    if mazeHeight == '':
-        mazeHeight = 0
+    values.screenWidth = int(entryWidth.get())
+    values.screenHeight = int(entryHeight.get())
+    values.mazeWidth = int(mentryWidth.get())
+    values.mazeHeight = int(mentryHeight.get())
     window.destroy()
     import mazeCreation
-    mazeCreation.mazeDraw(screenWidth,screenHeight,mazeWidth,mazeHeight)
+    mazeCreation.mazeDraw()
 
 window.title("GUI")
 window.geometry("500x300")
