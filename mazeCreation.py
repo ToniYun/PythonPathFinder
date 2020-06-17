@@ -2,6 +2,15 @@ import tkinter
 import values
 
 def mazeDraw():
+    def bfs():
+        values.algorithmType = 1
+        sendToMaze()
+    def dfs():
+        values.algorithmType = 2
+        sendToMaze()
+    def ucs():
+        values.algorithmType = 3
+        sendToMaze()
     def sendToMaze():
         values.insertLevelStr = list(TextIn.get("1.0",'end-1c'))
         newWindow.destroy()
@@ -23,19 +32,19 @@ def mazeDraw():
         text="BFS",
         width = 25,
         height = 3,
-        command = sendToMaze
+        command = bfs
     )
     DFS = tkinter.Button(
         text="DFS",
         width = 25,
         height = 3,
-        command = sendToMaze
+        command = dfs
     )
     button = tkinter.Button(
-        text="BFS",
+        text="UCS",
         width = 25,
         height = 3,
-        command = sendToMaze
+        command = ucs
     )
     TextIn.pack()
     TextIn.insert(tkinter.END,insertLevel)

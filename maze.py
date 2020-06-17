@@ -1,6 +1,8 @@
 import turtle
 import pens
 import bfsSearch
+import dfsSearch
+import uniformCostSearch
 import values
 #wn.setup(700,700)
 
@@ -52,7 +54,12 @@ def setupMaze():
                     MainCharacter.goto(screen_x, screen_y)
                     MainCharacter.stamp()
         #call for the path finder
-        bfsSearch.bfs(characterposition, treasureposition)
+        if values.algorithmType == 1:
+            bfsSearch.bfs(characterposition, treasureposition)
+        if values.algorithmType == 2:
+            dfsSearch.dfs(characterposition, treasureposition)
+        if values.algorithmType == 3:
+            uniformCostSearch.ucs(characterposition, treasureposition)
 
 
 
