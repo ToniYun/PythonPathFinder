@@ -11,6 +11,9 @@ def mazeDraw():
     def ucs():
         values.algorithmType = 3
         sendToMaze()
+    def gs():
+        values.algorithmType = 4
+        sendToMaze()
     def sendToMaze():
         values.insertLevelStr = list(TextIn.get("1.0",'end-1c'))
         newWindow.destroy()
@@ -40,15 +43,22 @@ def mazeDraw():
         height = 3,
         command = dfs
     )
-    button = tkinter.Button(
+    UCS = tkinter.Button(
         text="UCS",
         width = 25,
         height = 3,
         command = ucs
     )
+    GS = tkinter.Button(
+        text="GS",
+        width = 25,
+        height = 3,
+        command = gs
+    )
     TextIn.pack()
     TextIn.insert(tkinter.END,insertLevel)
     BFS.pack()
     DFS.pack()
-    button.pack()
+    UCS.pack()
+    GS.pack()
     newWindow.mainloop()

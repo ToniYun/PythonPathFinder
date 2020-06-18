@@ -3,6 +3,7 @@ import pens
 import bfsSearch
 import dfsSearch
 import uniformCostSearch
+import greedySearch
 import values
 #wn.setup(700,700)
 
@@ -46,7 +47,7 @@ def setupMaze():
                     pen.goto(screen_x, screen_y)
                     pen.stamp()
                 if character == "T":
-                    treasureposition = (screen_x, screen_y)
+                    treasureposition = x,y
                     treasure.goto(screen_x, screen_y)
                     treasure.stamp()
                 if character == "C":
@@ -60,6 +61,8 @@ def setupMaze():
             dfsSearch.dfs(characterposition, treasureposition)
         if values.algorithmType == 3:
             uniformCostSearch.ucs(characterposition, treasureposition)
+        if values.algorithmType == 4:
+            greedySearch.gs(characterposition, treasureposition)
 
 
 

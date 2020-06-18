@@ -4,10 +4,10 @@ import values
 import time
 import math
 
-def ucs(characterposition, treasureposition):
+def gs(characterposition, treasureposition):
     movement = pens.Movement()
-    ucsqueue = queue.PriorityQueue()
-    ucsqueue.put((1,(characterposition)))
+    gsqueue = queue.PriorityQueue()
+    gsqueue.put((1,(characterposition)))
     #print(ucsqueue.get()[1])
     #print(insertLevelStr[(26 * int(y)) + int(x)], end=" ")
     def move(pri,x,y):
@@ -20,11 +20,10 @@ def ucs(characterposition, treasureposition):
         magx = (x - treasureposition[0])
         magy = (y - treasureposition[1])
         mag = (magx*magx) + (magy*magy)
-        print((pri+math.sqrt(mag)))
-        ucsqueue.put(((pri+math.sqrt(mag)),(x, y)))
+        gsqueue.put(((math.sqrt(mag)),(x, y)))
         time.sleep(.2)
-    while ucsqueue.qsize() != 0:
-        pri,(x, y) = ucsqueue.get()
+    while gsqueue.qsize() != 0:
+        pri,(x, y) = gsqueue.get()
         if values.insertLevelStr[(26 * int(y+1)) + int(x)] == "T":
             break
         if values.insertLevelStr[(26 * int(y)) + int(x + 1)] == "T":
