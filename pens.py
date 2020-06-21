@@ -17,6 +17,13 @@ class Movement(turtle.Turtle):
         self.penup()
         self.speed(0)
 
+class best(turtle.Turtle):
+    def __init__(self):
+        turtle.Turtle.__init__(self)
+        self.shape("square")
+        self.color("yellow")
+        self.penup()
+        self.speed(0)
 
 class MainCharacter(turtle.Turtle):
     def __init__(self):
